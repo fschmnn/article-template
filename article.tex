@@ -4,14 +4,6 @@
 \documentclass[a4paper,11pt,oneside,DIV=12,twocolumn]{scrartcl}
 
 %--------------------------------------------------------------
-% layout (margins etc.)
-%--------------------------------------------------------------
-
-\setlength{\columnsep}{1cm}
-\pagenumbering{gobble}         % remove page numbers
-\usepackage{flushend}          % balance columns on last page
-
-%--------------------------------------------------------------
 % font, language and encoding
 %--------------------------------------------------------------
            
@@ -32,7 +24,30 @@
 \usepackage{blindtext}         % for the showcase
 
 %--------------------------------------------------------------
-% links etc
+% layout (margins etc.)
+%--------------------------------------------------------------
+
+\setlength{\columnsep}{1cm}
+\pagenumbering{gobble}         % remove page numbers
+\usepackage{flushend}          % balance columns on last page
+
+\usepackage{titlesec}          % customize section headings
+\usepackage{soul}              % add space to text
+
+% the use of KOMA-Script and titlesec together is not recommended, 
+% but it makes things a lot easier with the soul package 
+
+%https://ctan.space-pro.be/tex-archive/macros/generic/soul/soul-ori.pdf
+
+\newcommand*\periodafter[2]{#1{#2}.}
+\titleformat{\section}[block]
+{\normalfont\centering\scshape}
+{\S\,\thesection.}
+{.66em}
+{\periodafter\so}
+
+%--------------------------------------------------------------
+% links and quotes
 %--------------------------------------------------------------
 
 \usepackage{csquotes}          % for nice quotes
@@ -50,21 +65,24 @@
 % the main document
 %--------------------------------------------------------------
 
-\title{\rmfamily\normalfont\scshape specimen}
+% the \so command does not work in the title
+\title{\rmfamily\normalfont\caps {s\,p\,e\,c\,i\,m\,e\,n}}
 \author{by Fabian \textsc{Scheuermann}}
 \publishers{%
 \normalsize
 \vspace{0.0cm}
 \parbox{0.9\linewidth}{%
-This is a showcase for the article-template. It starts with a single column abstract and then continues with a two column layout. The beginning of each section uses dropped capitals. The template is very minimalistic and only has additional support for quotes and links. 
+This is a showcase for the article-template. It starts with a single column abstract and then continues with a two column layout. The beginning of each section uses dropped capitals. The template is very minimalistic and only has additional support for quotes and links. Here is a \href{https://github.com/fschmnn/article-template}{link to the repository}.
 }}
 \date{}
 
 \begin{document}
 \maketitle
 
+\section{First Section}
 \lettrine[lines=2,nindent=0.em]{T}{he} first section \blindtext \\
 
+\section{Second Section}
 \lettrine[lines=2,nindent=0.em]{N}{ext} \blindtext 
 Here is a quote
 \begin{displayquote}[Robert Bringhurst]
@@ -74,6 +92,7 @@ Typography is the craft of endowing human language with a durable visual form.
 \blindtext
 And because it was so fun, here is another \textquote{short quote}. \\
 
-\lettrine[lines=2,nindent=0.em]{F}{inally} \blindtext \blindtext We end with a \href{https://github.com/fschmnn/article-template}{link to the repository} to see how that looks.
+\section{Third Section}
+\lettrine[lines=2,nindent=0.em]{F}{inally} \blindtext \blindtext
 
 \end{document}
