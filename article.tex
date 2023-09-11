@@ -1,20 +1,14 @@
 % this was the inspiration for this template
 % https://hannah02.github.io/john-baskerville/version5.html
 
-\documentclass[11pt,a4paper]{article}
+\documentclass[a4paper,11pt,oneside,DIV=12,twocolumn]{scrartcl}
 
 %--------------------------------------------------------------
 % layout (margins etc.)
 %--------------------------------------------------------------
 
-\usepackage[
-    margin = 2.2cm,
-    top    = 2.2cm 
-           ]{geometry}
 \setlength{\columnsep}{1cm}
 \pagenumbering{gobble}         % remove page numbers
-\usepackage{multicol}          % combine one and two column layout
-\usepackage{flushend}          % balance columns on last page
 
 %--------------------------------------------------------------
 % font, language and encoding
@@ -47,16 +41,18 @@
 % the main document
 %--------------------------------------------------------------
 
-\title{\scshape specimen}
+\title{\rmfamily\normalfont\scshape specimen}
 \author{by Fabian \textsc{Scheuermann}}
+\publishers{%
+\normalsize
+\vspace{0.0cm}
+\parbox{0.9\linewidth}{%
+This is a showcase for the article-template. It starts with a single column abstract and then continues with a two column layout. The beginning of each section uses dropped capitals. The template is very minimalistic and only has additional support for quotes and links. 
+}}
 \date{}
 
 \begin{document}
 \maketitle
-\begin{multicols}{2}
-[
-This is a showcase for the article-template. It starts with a single column abstract and then continues with a two column layout. The beginning of each section uses dropped capitals. The template is very minimalistic and only has additional support for quotes and links. 
-]
 
 \lettrine[lines=2,nindent=0.em]{T}{he} first section \blindtext \\
 
@@ -70,6 +66,5 @@ Typography is the craft of endowing human language with a durable visual form.
 And because it was so fun, here is another \textquote{short quote}. \\
 
 \lettrine[lines=2,nindent=0.em]{F}{inally} \blindtext \blindtext We end with a \href{https://github.com/fschmnn/article-template}{link to the repository} to see how that looks.
-\end{multicols}
 
 \end{document}
