@@ -9,6 +9,7 @@
 
 \setlength{\columnsep}{1cm}
 \pagenumbering{gobble}         % remove page numbers
+\usepackage{flushend}          % balance columns on last page
 
 %--------------------------------------------------------------
 % font, language and encoding
@@ -18,7 +19,15 @@
 \usepackage[utf8]{inputenc}    % letters with accents
 \usepackage[T1]{fontenc} 	   % Use 8-bit encoding 
 \usepackage{lettrine}          % dropped capitals styles
-\usepackage{ebgaramond}        % the typeface used
+
+\RequirePackage[
+    oldstylenums,
+    oldstyle,
+    %veryoldstyle,             % use long s (normal with s=)
+    largesmallcaps,
+    %easyscsl,          	   % combine sc and sl
+    uprightgreeks
+    ]{kpfonts}			       % the typeface used
 
 \usepackage{blindtext}         % for the showcase
 
