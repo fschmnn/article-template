@@ -1,5 +1,9 @@
-% this was the inspiration for this template
+% the inspiration for this template was
+%
 % https://hannah02.github.io/john-baskerville/version5.html
+%
+% Advice: use \addsec{} instead of \section*{} to still have
+%         a section appear in the PDF bookmarks
 
 \documentclass[a4paper,11pt,oneside,DIV=12,twocolumn]{scrartcl}
 
@@ -28,6 +32,7 @@
 %--------------------------------------------------------------
 
 \setlength{\columnsep}{1cm}
+\setlength{\parindent}{0pt}
 \pagenumbering{gobble}         % remove page numbers
 \usepackage{flushend}          % balance columns on last page
 
@@ -39,12 +44,15 @@
 
 %https://ctan.space-pro.be/tex-archive/macros/generic/soul/soul-ori.pdf
 
+% sections with small caps and additional spacing
 \newcommand*\periodafter[2]{#1{#2}.}
 \titleformat{\section}[block]
 {\normalfont\centering\scshape}
 {\S\,\thesection.}
 {.66em}
 {\periodafter\so}
+
+\usepackage{graphicx}		   % to insert imges
 
 %--------------------------------------------------------------
 % links and quotes
@@ -61,6 +69,12 @@
 	breaklinks=true,		   % 	- line break inside links
 }
 
+\usepackage[
+	nameinlink
+	]{cleveref}                % easier references
+\crefname{section}{\S}{\S\S}
+\Crefname{section}{\S}{\S\S} 
+
 %--------------------------------------------------------------
 % the main document
 %--------------------------------------------------------------
@@ -72,27 +86,35 @@
 \normalsize
 \vspace{0.0cm}
 \parbox{0.9\linewidth}{%
-This is a showcase for the article-template. It starts with a single column abstract and then continues with a two column layout. The beginning of each section uses dropped capitals. The template is very minimalistic and only has additional support for quotes and links. Here is a \href{https://github.com/fschmnn/article-template}{link to the repository}.
+This is the showcase for the \texttt{article-template}. It starts with a single column abstract and then continues with a two column layout. The beginning of each section uses dropped capitals. The template is very minimalistic and only has additional support for quotes, links and images. It is available on \href{https://github.com/fschmnn/article-template}{GitHub}.
 }}
 \date{}
 
 \begin{document}
 \maketitle
 
-\section{First Section}
-\lettrine[lines=2,nindent=0.em]{T}{he} first section \blindtext \\
+\section{First Section}\label{sec:first}
+\lettrine[lines=2,nindent=0.em]{T}{he} first section. We will demonstrate how to include figures in \cref{sec:second} and quotes in \cref{sec:third}. \blindtext \\
 
-\section{Second Section}
+\section{Second Section}\label{sec:second}
 \lettrine[lines=2,nindent=0.em]{N}{ext} \blindtext 
-Here is a quote
-\begin{displayquote}[Robert Bringhurst]
-Typography is the craft of endowing human language with a durable visual form.
-\end{displayquote}
+Here we showcase how a picture looks like
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\columnwidth]{tex}\par
+This is how to include an image.
+\end{figure}
+\blindtext
 
+\section{Third Section}\label{sec:third}
+\lettrine[lines=2,nindent=0.em]{F}{inally} \blindtext 
+Here is a \emph{displayquote}
+\begin{displayquote}[Robert Bringhurst]
+Typography is the craft of endowing human language with a durable visual form.\\
+\end{displayquote}
 \blindtext
 And because it was so fun, here is another \textquote{short quote}. \\
 
-\section{Third Section}
-\lettrine[lines=2,nindent=0.em]{F}{inally} \blindtext \blindtext
+
 
 \end{document}
