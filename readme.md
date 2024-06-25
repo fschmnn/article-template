@@ -2,4 +2,4 @@
 
 This template provides a LaTeX template for a vintage style article.
 
-![specimen](D:\Documents\LaTeX\article-template\specimen.jpg)
+![specimen](https://github.com/fschmnn/article-template/blob/main/specimen.jpg)
